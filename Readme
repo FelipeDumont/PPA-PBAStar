@@ -1,0 +1,22 @@
+README
+
+This folder contains the Bash file Test.sh to create a folder Results, that will include the testing of the AStart singlecore, multicore, and Bidirectional multicore approach
+The AStar folder contains the implementation of the algorithm, as of now the folder contains a make file to deal with the dll creation of the AStar, that will work only fon linux
+since the threading libraries used are from linux, and the threading in windows changes some things.
+In the AStar folder there is a bash to test the algorithm, with the building and testing of any configuration.
+An example of the use of the bash files are the next
+
+Main folder:
+bash Test.sh true
+*true or false depending if you will clear and create a new version of AStar to test
+
+AStar folder:
+bash Test.sh 0 2 2 50 1 0 0
+The input is as follows
+1: 0 or 1 depending if you want to rebuild the excecutable
+2: 0,1,2 where the numbers reference the modes: singlecore, multicore, bidirectional multicore
+3: 2,3 ... n, this number represents the number of threads to excecute the file, please use more than 2
+4: 50, 100, n, this is the size of the map, that will be sized as nxn
+5: 1,2,3 .. n, this will represent the number of individuals to obtain the path
+6: 0,1: the maps to test the algorithm.
+7: 0,1: 1 is the debug mode, will display some information in between and present the obtained solutions
