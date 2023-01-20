@@ -383,6 +383,18 @@ void* FindPathThreadTo(void* data){
 	pthread_exit(NULL);
 }
 
+int int_rand (int a, int b){
+  int retorno = 0;
+  if (a < b){
+    retorno = (int) ((b - a) * drand48());
+    retorno = retorno + a;
+  }
+  else{
+    retorno = (int) ((a - b) * drand48());
+    retorno = retorno + b;
+  }
+  return retorno;
+}
 
 
 int main(int argc, char *argv[]) {
@@ -405,10 +417,16 @@ int main(int argc, char *argv[]) {
 	}
 
 	// Map settings
+	// int lPosition = next.x + next.y*nSize;
+	// considering this lpos = (1 ... n/2) + n/2*nsize
+	// 					lpos = n/2 + (1 ... n/2) * nsize
 	if(mapType == 1){
 		for (int i = 0; i < nSize/2; ++i)
 		{
-			map[i];
+			int sel = (2 + i) + (int(nSize/2) *nSize);
+			int sel2 = int(nSize/2) + ((1+i) * nSize);
+			map[sel] = true;
+			map[sel2] = true;
 		}
 	}
 
@@ -559,3 +577,4 @@ int main(int argc, char *argv[]) {
   	free(solutions);
   	return 0;
 }
+

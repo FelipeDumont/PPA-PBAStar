@@ -1,0 +1,181 @@
+[H[2J[3J4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+Path from start to goal: 
+(0, 0)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+[H[2J[3J1,0from 0
+0,1from 0
+-1,0from 0
+0,-1from 0
+2,0from 0
+1,1from 0
+1,-1from 0
+0,2from 1
+-1,1from 1
+3,0from 2
+2,1from 2
+2,-1from 2
+1,2from 1
+0,3from 1
+-1,2from 1
+3,1from 4
+2,2from 4
+1,3from 6
+3,2from 0
+2,3from 0
+-2,0from 3
+-1,-1from 3
+4,0from 7
+3,-1from 7
+1,4from 8
+3,3from 2
+2,4from 2
+-2,1from 12
+4,3from 1
+3,4from 1
+1,-2from 6
+4,1from 8
+4,2from 4
+0,4from 0
+-1,3from 0
+0,-2from 11
+1,5from 12
+2,5from 14
+5,3from 10
+4,4from 10
+5,0from 14
+4,-1from 14
+3,5from 17
+5,2from 22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+Path from start to goal: 
+(0, 0)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+[H[2J[3J0,0  there is parent ???-1
+1,0from 0
+0,1from 0
+-1,0from 0
+0,-1from 0
+1,0  there is parent ???0
+2,0from 0
+1,1from 0
+1,-1from 0
+0,1  there is parent ???0
+0,2from 1
+-1,1from 1
+2,0  there is parent ???1
+3,0from 2
+2,1from 2
+2,-1from 2
+0,2  there is parent ???2
+1,2from 1
+0,3from 1
+-1,2from 1
+1,1  there is parent ???1
+2,1  there is parent ???3
+3,1from 4
+2,2from 4
+1,2  there is parent ???4
+1,3from 6
+2,2  there is parent ???6
+3,2from 0
+2,3from 0
+-1,0  there is parent ???0
+-2,0from 3
+-1,-1from 3
+3,0  there is parent ???3
+4,0from 7
+3,-1from 7
+1,3  there is parent ???7
+1,4from 8
+2,3  there is parent ???8
+3,3from 2
+2,4from 2
+-1,1  there is parent ???2
+-2,1from 12
+3,3  there is parent ???12
+4,3from 1
+3,4from 1
+1,-1  there is parent ???1
+1,-2from 6
+3,1  there is parent ???6
+4,1from 8
+3,2  there is parent ???8
+4,2from 4
+0,3  there is parent ???4
+0,4from 0
+-1,3from 0
+0,-1  there is parent ???0
+0,-2from 11
+1,4  there is parent ???11
+1,5from 12
+2,4  there is parent ???12
+2,5from 14
+4,3  there is parent ???14
+5,3from 10
+4,4from 10
+4,0  there is parent ???10
+5,0from 14
+4,-1from 14
+3,4  there is parent ???14
+3,5from 17
+4,2  there is parent ???17
+5,2from 22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+4,4  there is parent ???22
+Path from start to goal: 
+(0, 0)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)
+(4, 4)

@@ -84,35 +84,36 @@ for x in individuals:
   dataDM[1].append(data["DMThread"][sizeAnalisis][x][threadOptions[1]])
   dataDM[2].append(data["DMThread"][sizeAnalisis][x][threadOptions[2]])
 
+y = np.array(individuals)
 plt.figure(figsize=(10,6))
 plt.ylabel("Time (s)")
 plt.xlabel("Number of individuals")
 
 points = np.array(dataLinear)
-plt.plot(points, color = "r")
+plt.plot(y, points, color = "r")
+
+
+points = np.array(dataT[0])
+plt.plot(y,points, color = "green", linestyle = "--")
+
+points = np.array(dataT[1])
+plt.plot(y,points, color = "green", linestyle = "-.")
+
+points = np.array(dataT[2])
+plt.plot(y,points, color = "green", linestyle = ":")
 
 
 points = np.array(dataDM[0])
-plt.plot(points, color = "blue", linestyle = "--")
+plt.plot(y,points, color = "blue", linestyle = "--")
 
 points = np.array(dataDM[1])
-plt.plot(points, color = "blue", linestyle = "-.")
+plt.plot(y,points, color = "blue", linestyle = "-.")
 
 points = np.array(dataDM[2])
-plt.plot(points, color = "blue", linestyle = ":")
-
-points = np.array(dataT[0])
-plt.plot(points, color = "green", linestyle = "--")
-
-points = np.array(dataT[1])
-plt.plot(points, color = "green", linestyle = "-.")
-
-points = np.array(dataT[2])
-plt.plot(points, color = "green", linestyle = ":")
-
+plt.plot(y,points, color = "blue", linestyle = ":")
 
 # Names for each line
-plt.legend(['Linear', '2 Threads Couple','4 Threads Couple','6 Threads Couple', '2 Threads','4 Threads','6 Threads'])
+plt.legend(['Sequential A*', 'Parallel A* (2)','Parallel A* (4)','Parallel A* (6)', 'Parallel Bidirectional A* (2)','Parallel Bidirectional A* (4)','Parallel Bidirectional A* (6)'])
 # where to save the image
 plt.savefig("TimeVSindividuals.png")
 
@@ -137,32 +138,32 @@ for x in sizes:
 plt.figure(figsize=(10,6))
 plt.ylabel("Time (s)")
 plt.xlabel("Map Size")
+y = np.array(sizes)
 
 points = np.array(dataLinear)
-plt.plot(points, color = "r")
-
-points = np.array(dataDM[0])
-plt.plot(points, color = "blue", linestyle = "--")
-
-points = np.array(dataDM[1])
-plt.plot(points, color = "blue", linestyle = "-.")
-
-points = np.array(dataDM[2])
-plt.plot(points, color = "blue", linestyle = ":")
+plt.plot(y,points, color = "r")
 
 
 points = np.array(dataT[0])
-plt.plot(points, color = "green", linestyle = "--")
+plt.plot(y,points, color = "green", linestyle = "--")
 
 points = np.array(dataT[1])
-plt.plot(points, color = "green", linestyle = "-.")
+plt.plot(y,points, color = "green", linestyle = "-.")
 
 points = np.array(dataT[2])
-plt.plot(points, color = "green", linestyle = ":")
+plt.plot(y,points, color = "green", linestyle = ":")
 
+points = np.array(dataDM[0])
+plt.plot(y,points, color = "blue", linestyle = "--")
+
+points = np.array(dataDM[1])
+plt.plot(y,points, color = "blue", linestyle = "-.")
+
+points = np.array(dataDM[2])
+plt.plot(y,points, color = "blue", linestyle = ":")
 
 # Names for each line
-plt.legend(['Linear', '2 threads Couple','4 threads Couple','6 threads Couple', '2 threads','4 threads','6 threads'])
+plt.legend(['Sequential A*', 'Parallel A* (2)','Parallel A* (4)','Parallel A* (6)', 'Parallel Bidirectional A* (2)','Parallel Bidirectional A* (4)','Parallel Bidirectional A* (6)'])
 # where to save the image
 plt.savefig("TimeVSMapSize.png")
 
@@ -178,38 +179,49 @@ for x in threadQ:
   # halve thing
   dataDM.append(data["DMThread"][biggestSize][biggestInd][x])
   
-print(dataT)
 y = np.array(threadQ)
 plt.figure(figsize=(10,6))
 plt.ylabel("Time (s)")
-plt.xlabel("thread quantity")
+plt.xlabel("Thread quantity")
 
 points = np.array(dataLinear)
 plt.plot(y,points, color = "r")
 
-points = np.array(dataDM)
-plt.plot(y,points, color = "blue")
-
 points = np.array(dataT)
 plt.plot(y,points, color = "green")
+
+points = np.array(dataDM)
+plt.plot(y,points, color = "blue")
 
 # points = np.array(dataDM)
 # plt.plot(y, points, color = "blue", linestyle = "-.")
 
-'''
-points = np.array(dataT[0])
-plt.plot(points, color = "blue", linestyle = "--")
-
-points = np.array(dataT[1])
-plt.plot(points, color = "blue", linestyle = "-.")
-
-points = np.array(dataT[2])
-plt.plot(points, color = "blue", linestyle = ":")
-'''
 # plt.axhline(dataLinear)
 # Names for each line
-plt.legend(['Linear', "thread Couple", 'thread'])
+plt.legend(['Sequential A*', 'Parallel A*', "Parallel Bidirectional A*"])
 # where to save the image
 plt.savefig("TimeVSThreads.png")
 # line if necesary
 # plt.ylim(-20000, 20000)
+
+
+# speedup 
+lines = ""
+
+for x in threadQ:
+  seq = round(data["Linear"][biggestSize][2],4)
+  speedupP = round(seq/data["MThread"][biggestSize][2][x],4)
+  speedupPB = round(seq/ data["DMThread"][biggestSize][2][x],4)
+  lines += " {} & {} & {} & {} \n".format("a",seq, speedupP, speedupPB)
+
+for x in threadQ:
+  seq = round(data["Linear"][biggestSize][biggestInd],4)
+  speedupP = round(seq/ data["MThread"][biggestSize][biggestInd][x],4)
+  speedupPB = round(seq/ data["DMThread"][biggestSize][biggestInd][x],4)
+  lines += " {} & {} & {} & {} \n".format("a",seq, speedupP, speedupPB)
+
+
+lt = open("LatexTable.txt","w")
+lt.write(lines)
+lt.close()
+
